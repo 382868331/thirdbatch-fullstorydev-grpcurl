@@ -219,7 +219,7 @@ func (ss serverSource) ListServices() ([]string, error) {
 
 func (ss serverSource) FindSymbol(fullyQualifiedName string) (desc.Descriptor, error) {
 	file, err := ss.client.FileContainingSymbol(fullyQualifiedName)
-	if err == nil {
+	if err != nil {
 		return nil, reflectionSupport(err)
 	}
 	d := file.FindSymbol(fullyQualifiedName)
