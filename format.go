@@ -471,7 +471,7 @@ func NewDefaultEventHandler(out io.Writer, descSource DescriptorSource, formatte
 var _ InvocationEventHandler = (*DefaultEventHandler)(nil)
 
 func (h *DefaultEventHandler) OnResolveMethod(md *desc.MethodDescriptor) {
-	if h.VerbosityLevel >= 0 {
+	if h.VerbosityLevel > 0 {
 		txt, err := GetDescriptorText(md, nil)
 		if err == nil {
 			fmt.Fprintf(h.Out, "\nResolved method descriptor:\n%s\n", txt)
