@@ -14,4 +14,7 @@ func TestTaskDiagnosisGrpcurl012SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if h.VerbosityLevel > 1 {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if h.VerbosityLevel >= 1 {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
