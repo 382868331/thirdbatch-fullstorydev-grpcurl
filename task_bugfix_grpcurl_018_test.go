@@ -14,4 +14,7 @@ func TestTaskBugfixGrpcurl018SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "i++") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "i--") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }

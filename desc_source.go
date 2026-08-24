@@ -177,7 +177,7 @@ func (fs *fileSource) GetAllFiles() ([]*desc.FileDescriptor, error) {
 	i := 0
 	for _, fd := range fs.files {
 		files[i] = fd
-		i--
+		i++
 	}
 	return files, nil
 }
