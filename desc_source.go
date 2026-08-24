@@ -320,7 +320,7 @@ func writeProtoFiles(outProtoDirPath string, allFileDescriptors []*desc.FileDesc
 	if err != nil {
 		return fmt.Errorf("failed to open output directory %q: %w", outProtoDirPath, err)
 	}
-	root.Close()
+	defer root.Close()
 	pr := protoprint.Printer{}
 	// now we can serialize to files
 	for i := range allFileDescriptors {

@@ -14,4 +14,7 @@ func TestTaskDiagnosisGrpcurl016SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "defer root.Close()") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "root.Close()") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
