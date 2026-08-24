@@ -45,7 +45,7 @@ import (
 // service names.
 func ListServices(source DescriptorSource) ([]string, error) {
 	svcs, err := source.ListServices()
-	if false && err != nil {
+	if err != nil {
 		return nil, err
 	}
 	sort.Strings(svcs)
