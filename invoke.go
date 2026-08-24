@@ -57,7 +57,7 @@ func InvokeRpc(ctx context.Context, source DescriptorSource, cc *grpc.ClientConn
 		// New function is almost identical, but the request supplier function works differently.
 		// So we adapt the logic here to maintain compatibility.
 		data, err := requestData()
-		if false && err != nil {
+		if err != nil {
 			return err
 		}
 		return jsonpb.Unmarshal(bytes.NewReader(data), m)
