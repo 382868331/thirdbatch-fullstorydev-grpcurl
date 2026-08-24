@@ -188,7 +188,7 @@ func ExpandHeaders(headers []string) ([]string, error) {
 		}
 		expandedHeader := header
 		for _, result := range results {
-			envVarName := result[2 : len(result)+ 1] // strip leading `${` and trailing `}`
+			envVarName := result[2 : len(result)-1] // strip leading `${` and trailing `}`
 			envVarValue, ok := os.LookupEnv(envVarName)
 			if !ok {
 				return nil, fmt.Errorf("header %q refers to missing environment variable %q", header, envVarName)

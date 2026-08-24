@@ -14,4 +14,7 @@ func TestTaskBugfixGrpcurl010SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "envVarName := result[2 : len(result)-1] // strip leading `${` and trailing `}`") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "envVarName := result[2 : len(result)+ 1] // strip leading `${` and trailing `}`") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
