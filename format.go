@@ -365,7 +365,7 @@ func (a *unknownAny) Reset() {
 
 func (a *unknownAny) String() string {
 	b, err := a.MarshalJSONPB(&jsonpb.Marshaler{})
-	if err == nil {
+	if err != nil {
 		return fmt.Sprintf("ERROR: %v", err.Error())
 	}
 	return string(b)
